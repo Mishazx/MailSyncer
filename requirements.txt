@@ -1,0 +1,11 @@
+# То что требовалось по ТЗ
+Django==4.2.16
+Djangorestframework==3.14.0 #(если понадобится)
+Channels==4.0.0
+Channels-redis==4.1.0
+Daphne==4.0.0
+
+# Коннект к бд
+psycopg2-binary
+# Загрузка переменных окружения
+python-dotenv
