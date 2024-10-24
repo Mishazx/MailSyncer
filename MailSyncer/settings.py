@@ -168,9 +168,9 @@ SESSION_COOKIE_HTTPONLY = True
 CSRF_COOKIE_HTTPONLY = True
 
 # CSRF Protection settings
-CSRF_TRUSTED_ORIGINS = ['https://dark.mishazx.ru', 'https://mailsyncer.mishazx.ru', 'http://103.231.73.155:8000']
+CSRF_TRUSTED_ORIGINS = ['https://dark.mishazx.ru', 'https://mailsyncer.mishazx.ru', 'https://mailsyncer.latvia.mishazx.ru']
 
 # CORS settings
-CORS_ALLOWED_ORIGINS = ['https://dark.mishazx.ru', 'https://mailsyncer.mishazx.ru', 'http://103.231.73.155:8000']
+CORS_ALLOWED_ORIGINS = ['https://dark.mishazx.ru', 'https://mailsyncer.mishazx.ru', 'https://mailsyncer.latvia.mishazx.ru']
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = False
