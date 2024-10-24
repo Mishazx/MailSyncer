@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-($uz3*qe$j%huwuw-s($h(8vf9n&dxciosmopm2%mhmxo3#%ns
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -153,3 +153,24 @@ IMAP_SERVERS = {
     "gmail": "imap.gmail.com",
     "mail": "imap.mail.ru",
 }
+
+
+# my cookie and csrf settings 
+
+# Cookie settings
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+SESSION_COOKIE_HTTPONLY = True
+CSRF_COOKIE_HTTPONLY = True
+
+# CSRF Protection settings
+CSRF_TRUSTED_ORIGINS = ['https://dark.mishazx.ru', 'https://mailsyncer.mishazx.ru']
+
+# CORS settings
+CORS_ALLOWED_ORIGINS = ['https://dark.mishazx.ru', 'https://mailsyncer.mishazx.ru']
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = False
