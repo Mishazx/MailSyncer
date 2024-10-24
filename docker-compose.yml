@@ -1,0 +1,34 @@
+services:
+  db:
+    image: postgres:15
+    container_name: mail_syncer_db_container
+    environment:
+      POSTGRES_DB: mail_syncer_db
+      POSTGRES_USER: mail_syncer_user
+      POSTGRES_PASSWORD: your_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  web:
+    build: .
+    container_name: mail_syncer_web_container
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      # - redis
+    environment:
+      POSTGRES_DB: mail_syncer_db
+      POSTGRES_USER: mail_syncer_user
+      POSTGRES_PASSWORD: your_password
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+      REDIS_URL: "redis://redis:6379/1"
+      DJANGO_SETTINGS_MODULE: 'MailSyncer.settings'
+
+volumes:
+  postgres_data:

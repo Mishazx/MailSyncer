@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center">
+    <h1>Mail Integration</h1>
+    <div>
+        {% include 'buttons.html' %}
+    </div>
+</div>
+
+<form id="login-form">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="account-select">Выберите учетную запись</label>
+        <select id="account-select" class="form-control" onchange="fillCredentials()">
+            <option value="">Выберите учетную запись</option>
+            {% for account in email_accounts %}
+                <option value="{{ account.email }}" data-password="{{ account.password }}">
+                    {{ account.email }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Почта</label>
+        <input type="email" id="email" class="form-control" placeholder="Введите почту" required>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Пароль</label>
+        <input type="password" id="password" class="form-control" placeholder="Введите пароль" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Получить сообщения
+    </button>
+</form>
+
+{% include 'progress_bar.html' %}
+{% include 'clear_button.html' %}
+{% include 'mail_table.html' %}
+
+{% endblock %}
